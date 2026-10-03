@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>vpnstan</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="wrap">
+<header><strong>vpnstan</strong><span>3X-UI v2.9.0</span></header>
+
+<section id="login" class="card">
+<h1>ورود</h1>
+<p>با حساب مدیریتی 3X-UI وارد شوید.</p>
+<input id="username" autocomplete="username" placeholder="نام کاربری">
+<input id="password" autocomplete="current-password" type="password" placeholder="رمز عبور">
+<button onclick="login()">ورود به پنل</button>
+<div id="loginMsg"></div>
+</section>
+
+<section id="app" class="hidden">
+<div class="stats">
+<div class="stat"><b id="count">—</b><small>کاربر</small></div>
+<div class="stat"><b id="status">متصل</b><small>وضعیت</small></div>
+</div>
+
+<div class="grid">
+<section class="card">
+<h2>ساخت کانفیگ</h2>
+<label>Inbound</label><select id="inbound"></select>
+<label>اسم کاربر</label><input id="name" placeholder="مثلاً Amir-01">
+<label>حجم (GB)</label><input id="gb" type="number" min="1" value="50">
+<label>مدت (روز)</label><input id="days" type="number" min="1" value="30">
+<button onclick="createClient()">ساخت کانفیگ</button>
+<div id="createMsg"></div>
+</section>
+
+<section class="card">
+<h2>راهنما</h2>
+<p>بعد از ساخت، 3X-UI credential و subscription مربوط به Inbound را مدیریت می‌کند.</p>
+<p>برای اینکه کانفیگ در اینترنت کار کند، Inbound باید روی نودی باشد که پورت و پروتکل آن از اینترنت قابل دسترسی باشد.</p>
+</section>
+</div>
+
+<section class="card">
+<h2>کاربران</h2>
+<button class="secondary" onclick="refresh()">به‌روزرسانی</button>
+<pre id="clients">—</pre>
+</section>
+</section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
